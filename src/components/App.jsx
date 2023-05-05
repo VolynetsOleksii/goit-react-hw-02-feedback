@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { StatisticList } from './StatisticList/StatisticList';
 import { Section } from './Section/Section';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Container } from './Container/Container.styled';
+import { GlobalStyle } from './GlobalStyle';
+
 export class App extends Component {
   state = {
     good: 0,
@@ -32,7 +35,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
 
     return (
-      <div>
+      <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={keys}
@@ -48,7 +51,8 @@ export class App extends Component {
             positivePercentage={this.countPositivePercentage()}
           />
         </Section>
-      </div>
+        <GlobalStyle />
+      </Container>
     );
   }
 }
